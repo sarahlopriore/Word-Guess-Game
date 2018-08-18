@@ -2,8 +2,16 @@
 // Establish an array for all possible letter guesses
 var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 // Establish an array for all word guess options
-
+var wordArray = ["gorilla", "koala", "giraffe", "zebra", "anteater", "elephant", "lion", "tiger", "shark", "rhino", "flamingo", "lemur", "cheetah", 
+"octopus"]
 // When page is loaded Computer chooses a word for player to guess and displays blanks for number of letters in the word
+window.addEventListener("load", function() {
+    var randomIndex = Math.floor(Math.random()*wordArray.length);
+    var computerChoice = wordArray[randomIndex];
+    console.log(computerChoice);
+    
+});
+
 
 // Listen for key events for letters that are typed 
 
