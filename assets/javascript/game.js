@@ -4,13 +4,37 @@ var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
 // Establish an array for all word guess options
 var wordArray = ["gorilla", "koala", "giraffe", "zebra", "anteater", "elephant", "lion", "tiger", "shark", "rhino", "flamingo", "lemur", "cheetah", 
 "octopus"]
+
+var chosenWord = document.getElementById("currentWord");
+var guessedLetters = document.getElementById("lettersGuessed");
+var guessesRemaining = document.getElementById("remainingGuesses");
+var numberGuessesRemaining = 10;
+var wins = 0;
+var winsDisplay = document.getElementById("winsP");
+
 // When page is loaded Computer chooses a word for player to guess and displays blanks for number of letters in the word
 window.addEventListener("load", function() {
     var randomIndex = Math.floor(Math.random()*wordArray.length);
     var computerChoice = wordArray[randomIndex];
     console.log(computerChoice);
+    for (var i = 0; i < computerChoice.length; i++) {
+        chosenWord.textContent += "- "
+    }
+    guessesRemaining.textContent = numberGuessesRemaining;
+    
+    document.onkeyup = function (event) {
+        let key = event.key.toLowerCase();
+        if (guessedLetters.textContent === "") {
+            guessedLetters.textContent = key; 
+        } else {
+            guessedLetters.textContent += ", " + key;
+        }
+        
+    }
     
 });
+
+
 
 
 // Listen for key events for letters that are typed 
